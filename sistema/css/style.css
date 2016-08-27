@@ -67,6 +67,42 @@ footer .credit {
 	font-size: .8em;
 }
 
+/* Botoes */
+#adicionarAparelho {
+	cursor: pointer;
+	background: #4DB6ACA; 
+	background: -moz-linear-gradient(top, #318457, #74D29F);
+	background: -webkit-linear-gradient(top, #318457, #74D29F);
+	background: linear-gradient(top, #318457, #74D29F);
+	border-radius: 6px;
+	border: 1px solid #555;
+	width: 168px;
+	position: relative;
+	height: 44px;
+	color: #fff;
+	line-height: 42px;
+	font-size: 16px;
+	text-shadow: 0 -1px 1px #093B5C;
+}
+
+/* Botoes */
+#editarKwh {
+	cursor: pointer;
+	background: #4DB6ACA; 
+	background: -moz-linear-gradient(top, #318457, #74D29F);
+	background: -webkit-linear-gradient(top, #318457, #74D29F);
+	background: linear-gradient(top, #318457, #74D29F);
+	border-radius: 6px;
+	border: 1px solid #555;
+	width: 168px;
+	position: relative;
+	height: 44px;
+	color: #fff;
+	line-height: 42px;
+	font-size: 16px;
+	text-shadow: 0 -1px 1px #093B5C;
+}
+
 /* Layout */
 
 header {
@@ -305,110 +341,6 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 	background: -webkit-linear-gradient(top, #318457, #74D29F);
 	background: linear-gradient(top, #318457, #74D29F);
 }
-
-/* Botoes */
-#adicionarAparelho {
-	cursor: pointer;
-	background: #4DB6ACA; 
-	background: -moz-linear-gradient(top, #318457, #74D29F);
-	background: -webkit-linear-gradient(top, #318457, #74D29F);
-	background: linear-gradient(top, #318457, #74D29F);
-	border-radius: 6px;
-	border: 1px solid #555;
-	width: 168px;
-	position: relative;
-	height: 44px;
-	color: #fff;
-	line-height: 42px;
-	font-size: 16px;
-	text-shadow: 0 -1px 1px #093B5C;
-}
-
-#informacoesSistema {
-	cursor: pointer;
-	background: #4DB6AC; 
-	background: -moz-linear-gradient(top, #318457, #74D29F);
-	background: -webkit-linear-gradient(top, #318457, #74D29F);
-	background: linear-gradient(top, #318457, #74D29F);
-	border-radius: 6px;
-	border: 1px solid #555;
-	width: 220px;
-	position: relative;
-	height: 44px;
-	color: #fff;
-	line-height: 42px;
-	font-size: 16px;
-	text-shadow: 0 -1px 1px #093B5C;
-}
-
-#botao1 {
-	cursor: pointer;
-	background: #4DB6AC; 
-	background: -moz-linear-gradient(top, #318457, #74D29F);
-	background: -webkit-linear-gradient(top, #318457, #74D29F);
-	background: linear-gradient(top, #318457, #74D29F);
-	border-radius: 6px;
-	border: 1px solid #555;
-	width: 168px;
-	position: relative;
-	height: 44px;
-	color: #fff;
-	line-height: 42px;
-	font-size: 16px;
-	text-shadow: 0 -1px 1px #093B5C;
-}
-
-#botao2 {
-	cursor: pointer;
-	background: #4DB6AC; 
-	background: -moz-linear-gradient(top, #318457, #74D29F);
-	background: -webkit-linear-gradient(top, #318457, #74D29F);
-	background: linear-gradient(top, #318457, #74D29F);
-	border-radius: 6px;
-	border: 1px solid #555;
-	width: 168px;
-	position: relative;
-	height: 44px;
-	color: #fff;
-	line-height: 42px;
-	font-size: 16px;
-	text-shadow: 0 -1px 1px #093B5C;
-}
-
-#botao3 {
-	cursor: pointer;
-	background: #4DB6AC; 
-	background: -moz-linear-gradient(top, #318457, #74D29F);
-	background: -webkit-linear-gradient(top, #318457, #74D29F);
-	background: linear-gradient(top, #318457, #74D29F);
-	border-radius: 6px;
-	border: 1px solid #555;
-	width: 168px;
-	position: relative;
-	height: 44px;
-	color: #fff;
-	line-height: 42px;
-	font-size: 16px;
-	text-shadow: 0 -1px 1px #093B5C;
-}
-
-#botao4 {
-	cursor: pointer;
-	background: #4DB6AC; 
-	background: -moz-linear-gradient(top, #318457, #74D29F);
-	background: -webkit-linear-gradient(top, #318457, #74D29F);
-	background: linear-gradient(top, #318457, #74D29F);
-	border-radius: 6px;
-	border: 1px solid #555;
-	width: 168px;
-	position: relative;
-	height: 44px;
-	color: #fff;
-	line-height: 42px;
-	font-size: 16px;
-	text-shadow: 0 -1px 1px #093B5C;
-}
-
 
 /* Checkboxes as Toggle-buttons */
 
