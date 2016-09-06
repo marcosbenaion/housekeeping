@@ -2,6 +2,7 @@
 
 import os
 import sqlite3
+import sys
 
 home = os.getenv("HOME")
 conn = sqlite3.connect(home + "/.housekeeping/hk.db")
