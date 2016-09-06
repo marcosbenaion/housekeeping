@@ -37,7 +37,7 @@ while status != 0:
 
 t = (total, sys.argv[1])
 c.execute('''update aparelhos set valor=? where nome=?''', t)
-t = (total, datetime.datetime.now().month, sys.argv[1])
+t = (sys.argv[1], datetime.datetime.now().month, total)
 c.execute('''INSERT INTO historico VALUES(?, ?, ?)''', t)
 conn.commit()
 conn.close()
