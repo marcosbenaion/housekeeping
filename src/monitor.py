@@ -1,5 +1,6 @@
 #! /usr/bin/python2
 
+import datetime
 import os
 import sqlite3
 import sys
@@ -36,5 +37,7 @@ while status != 0:
 
 t = (total, sys.argv[1])
 c.execute('''update aparelhos set valor=? where nome=?''', t)
+t = (total, datetime.datetime.now().month, sys.argv[1])
+c.execute('''INSERT INTO historico VALUES(?, ?, ?)''', t)
 conn.commit()
 conn.close()
