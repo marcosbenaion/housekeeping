@@ -1,5 +1,6 @@
 #! /usr/bin/python2
 
+import json
 import os
 import sqlite3
 
@@ -9,5 +10,11 @@ c = conn.cursor()
 
 c.execute('''SELECT * FROM aparelhos''')
 devices = c.fetchall()
+
+f = open(home + "/.housekeeping/devices.json", "w")
+
+f.write(json.dumps(devices))
+
+f.close()
 
 conn.close()
