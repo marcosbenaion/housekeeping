@@ -1,96 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
+<html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- CSS Metro -->
+    <link href="css/metro.css" rel="stylesheet">
+    <link href="css/metro-icons.css" rel="stylesheet">
+    <link href="css/metro-responsive.css" rel="stylesheet">
+    
+    <!-- Meu CSS -->
+    <link href="css/position.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/metro.js"></script>
+    <script src="scripts/jquery.dataTables.min.js"></script>
+    
+    <script>
+        function pushMessage(t){
+            var mes = 'Info|Implement independently';
+            $.Notify({
+                caption: mes.split("|")[0],
+                content: mes.split("|")[1],
+                type: t
+            });
+        }
 
-	<title>Smart Home Lite by PubNub</title>
-	<meta name="description" content="Pi House Demo">
-	<meta name="author" content="Tomomi Imura  @girlie_mac">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
+        $(function(){
+            $('.sidebar').on('click', 'li', function(){
+                if (!$(this).hasClass('active')) {
+                    $('.sidebar li').removeClass('active');
+                    $(this).addClass('active');
+                }
+            })
+        })
+    </script>
+    
 </head>
+<body class="bg-lightBlue">
+    <!-- Barra superior com nome da organizacao-->
+    <div class="app-bar fixed-top darcula" data-role="appbar">
+        <a class="app-bar-element branding"><img id="housekeepingLogo" src="img/houseKeepingLogo.png">Smart Homes Housekeeping</a>
+        <span class="app-bar-divider"></span>
 
-<body>
-<!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-PZWSZ2"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-PZWSZ2');</script>
-<!-- End Google Tag Manager -->
-	<header>
-		<img src="img/houseKeepingLogo.png">
-		SMART HOMES <strong>HOUSEKEEPING</strong>
-		<div class="pubnub"></div>
-
-		<div>
-		
-			<button type="button" id="adicionarAparelho" onclick="document.location.href='sistema/adicionarAparelho.html';">Adicionar Aparelho</button>
-			<button type="button" id="informacoesSistema" onclick="document.location.href='sistema/infoSistema.html';">Informacoes do Sistema</button>
-
-		</div>
-
-	</header>
-	<section class="container">
-
-		<section class="pref-container">
-			<section class="preference">
-				<div>
-					<div class="caption">Refrigerador</div>
-					<label for="refrigerador">
-						<input id="refrigerador" type="checkbox">
-						<div class="toggle-button">
-							<div class="switch"></div>
-						</div>
-					</label>
-					<button type="button" id="botao1" onclick="document.location.href='estatisticas/Refrigerador.html';">Estatisticas</button>
-				</div>
-
-				<div>
-					<div class="caption">Televisao</div>
-					<label for="televisao">
-						<input id="televisao" type="checkbox">
-						<div class="toggle-button">
-							<div class="switch"></div>
-						</div>
-					</label>
-					<button type="button" id="botao2" onclick="document.location.href='estatisticas/Televisao.html';">Estatisticas</button>
-				</div>
-				
-				<div>
-					<div class="caption">Ar Condicionado</div>
-					<label for="arcondicionado">
-						<input id="arcondicionado" type="checkbox">
-						<div class="toggle-button">
-							<div class="switch"></div>
-						</div>
-					</label>
-					<button type="button" id="botao3" onclick="document.location.href='estatisticas/ArCondicionado.html';">Estatisticas</button>
-				</div>
-
-				<div>
-					<div class="caption">Lampadas</div>
-					<label for="lampadas">
-						<input id="lampadas" type="checkbox">
-						<div class="toggle-button">
-							<div class="switch"></div>
-						</div>
-					</label>
-					<button type="button" id="botao4" onclick="document.location.href='estatisticas/Lampadas.html';">Estatisticas</button>
-				</div>
-
-			</section>
-
-		</section>
-
-	</section>
-
-	<footer>
-
-	</footer>
-
-	<script src="js/js1.js"></script>
+        <div class="app-bar-element place-right">
+            <span class="dropdown-toggle"><span class="mif-user"></span> Administrador</span>
+            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true" style="width: 220px">
+                <h2 class="text-light">Configuracoes</h2>
+                <ul class="unstyled-list fg-dark">
+                    <li><a href="" class="fg-white3 fg-hover-yellow">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Barra lateral e restante da pagina -->
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    
+                    <!-- Barra Lateral -->
+                    
+                    <ul class="sidebar">
+                        <li class="active"><a>
+                            <span class="mif-feed icon"></span>
+                            <span class="title">Aparelhos Conectados</span>
+                        </a></li>
+                        <li class="disabled"><a>
+                            <span class="mif-plus icon"></span>
+                            <span class="title">Cadastrar Aparelho</span>
+                        </a></li>
+                        <li class="disabled"><a>
+                            <span class="mif-loop2 icon"></span>
+                            <span class="title">Atualizar Cadastro</span>
+                        </a></li>
+                        <li class="disabled"><a href="historico.html">
+                            <span class="mif-calendar icon"></span>
+                            <span class="title">Historico de Consumo</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                    <h1 class="text-light">Aparelhos Conectados <span class="mif-feed icon place-right"></span></h1>
+                    <!-- Botao de Cadastrar Aparelho -->
+                    <hr class="thin bg-grayLighter">
+                    <button class="button primary" onclick="location.href='cadastro.html'"><span class="mif-plus"></span> Cadastrar Aparelho</button>
+                    <hr class="thin bg-grayLighter">
+                    
+                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                        <thead>
+                        <tr>
+                            <td class="sortable-column sort-asc" style="width: 100px">Aparelho</td>
+                            <td class="sortable-column" style="width: 20px">Status</td>
+                            <td style="width: 20px">Ligar/Desligar</td>
+                            <td style="width: 100px">Gerenciar</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Televisao</td>
+                            <td class="align-center"><span class="mif-checkmark fg-green"></span></td>
+                            <td>
+                                <label class="switch-original">
+                                    <input type="checkbox" checked>
+                                    <span class="check"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <button class="button warning" onclick="location.href='atualizar.html'"><span class="mif-loop2"></span> Atualizar Cadastro</button>
+                                <button class="button alert" onclick="location.href='index.html'"><span class="mif-minus"></span> Remover Aparelho</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Geladeira</td>
+                            <td class="align-center"><span class="mif-stop fg-red"></span></td>
+                            <td>
+                                <label class="switch-original">
+                                    <input type="checkbox">
+                                    <span class="check"></span>
+                                </label>
+                            </td>
+                            <td>
+                                <button class="button warning" onclick="location.href='atualizar.html'"><span class="mif-loop2"></span> Atualizar Cadastro</button>
+                                <button class="button alert" onclick="location.href='index.html'"><span class="mif-minus"></span> Remover Aparelho</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
 </body>
+
 </html>
