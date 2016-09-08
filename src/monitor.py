@@ -16,7 +16,7 @@ c = conn.cursor()
 
 c.execute('''select kwh from aparelhos where nome=?''', device)
 kwh = c.fetchone()[0]
-cost = kwh/3600.0 * 0.55/3600.0
+cost = kwh * 0.55 / 3600.0
 c.execute('''select estado from aparelhos where nome=?''', device)
 status = c.fetchone()[0]
 
