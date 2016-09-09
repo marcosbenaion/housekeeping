@@ -13,7 +13,20 @@ records = c.fetchall()
 
 f = open(home + "/.housekeeping/historico.json", "w")
 
-f.write(json.dumps(records))
+f.write("{\n")
+f.write("\"historico\": [\n")
+
+for i in range(len(records)):
+        f.write("\t{")
+        f.write("\"nome\":" + "\"" + str(records[i][0]) +"\", ")
+        f.write("\"mes\":" + str(records[i][1]) + ", ")
+        f.write("\"custo\":" + str(records[i][2]))
+        f.write("}")
+        if i < (len(records) -1):
+                f.write(",\n")
+
+
+f.write("\n\t]\n}\n")
 
 f.close()
 
