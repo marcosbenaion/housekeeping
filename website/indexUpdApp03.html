@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- CSS Metro -->
+    <link href="css/metro.css" rel="stylesheet">
+    <link href="css/metro-icons.css" rel="stylesheet">
+    <link href="css/metro-responsive.css" rel="stylesheet">
+    
+    <!-- Meu CSS -->
+    <link href="css/position.css" rel="stylesheet">
+    
+    <!-- Scripts -->
+    <script src="scripts/jquery.js"></script>
+    <script src="scripts/metro.js"></script>
+    <script src="scripts/jquery.dataTables.min.js"></script>
+    
+</head>
+<body class="bg-lightBlue">
+    <!-- Barra superior com nome da organizacao-->
+    <div class="app-bar fixed-top darcula" data-role="appbar">
+        <a class="app-bar-element branding"><img id="housekeepingLogo" src="img/houseKeepingLogo.png">Smart Homes Housekeeping</a>
+        <span class="app-bar-divider"></span>
+
+        <div class="app-bar-element place-right">
+            <span class="dropdown-toggle"><span class="mif-user"></span> Administrador</span>
+            <div class="app-bar-drop-container padding10 place-right no-margin-top block-shadow fg-dark" data-role="dropdown" data-no-close="true" style="width: 220px">
+                <h2 class="text-light">Configuracoes</h2>
+                <ul class="unstyled-list fg-dark">
+                    <li><a href="" class="fg-white3 fg-hover-yellow">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- <img style="display: none;" src="turnontv.php"> -->
+    
+    <!-- Barra lateral e restante da pagina -->
+    <div class="page-content">
+        <div class="flex-grid no-responsive-future" style="height: 100%;">
+            <div class="row" style="height: 100%">
+                <div class="cell size-x200" id="cell-sidebar" style="background-color: #71b1d1; height: 100%">
+                    
+                    <!-- Barra Lateral -->
+                    
+                    <ul class="sidebar">
+                        <li class="active"><a>
+                            <span class="mif-feed icon"></span>
+                            <span class="title">Aparelhos Conectados</span>
+                        </a></li>
+                        <li class="disabled"><a>
+                            <span class="mif-plus icon"></span>
+                            <span class="title">Cadastrar Aparelho</span>
+                        </a></li>
+                        <li class="disabled"><a>
+                            <span class="mif-loop2 icon"></span>
+                            <span class="title">Atualizar Cadastro</span>
+                        </a></li>
+                        <li class="disabled"><a>
+                            <span class="mif-calendar icon"></span>
+                            <span class="title">Historico de Consumo</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div class="cell auto-size padding20 bg-white" id="cell-content">
+                    <h1 class="text-light">Aparelhos Conectados <span class="mif-feed icon place-right"></span></h1>
+                    <!-- Botao de Cadastrar Aparelho -->
+                    <hr class="thin bg-grayLighter">
+                    <button class="button primary"><span class="mif-plus"></span> Cadastrar Aparelho</button>
+                    <hr class="thin bg-grayLighter">
+                    
+                    <table id="tabelaAparelhos" class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                        <thead>
+                        <tr>
+                            <td class="sortable-column sort-asc" style="width: 100px">Aparelho</td>
+                            <td style="width: 20px">Ligar/Desligar</td>
+                            <td style="width: 100px">Gerenciar</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Ar Condicionado</td>
+                            <td>
+                                <button class="button success"><span class="mif-broadcast"></span> Ativar</button>
+                            </td>
+                            <td>
+                                <button class="button warning"><span class="mif-loop2"></span> Atualizar Cadastro</button>
+                                <button class="button alert"><span class="mif-minus"></span> Remover Aparelho</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Televisao</td>
+                            <td>
+                                <button class="button success"><span class="mif-broadcast"></span> Ativar</button>
+                            </td>
+                            <td>
+                                <button class="button warning"><span class="mif-loop2"></span> Atualizar Cadastro</button>
+                                <button class="button alert" onclick="location.href='indexRemApp03.html'"><span class="mif-minus"></span> Remover Aparelho</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+    
+<script>
+
+    
+</script>
+
+</html>

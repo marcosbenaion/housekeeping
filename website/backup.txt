@@ -1,0 +1,58 @@
+<script>
+        
+        var newJSON;
+
+        var request = new XMLHttpRequest();
+        request.open('GET', 'devices.json', true);
+        request.onload = function() {
+            if (request.status >= 200 && request.status < 400) {
+                var dataJSON = JSON.parse(request.responseText);
+            } else {
+            }
+        };
+        request.onerror = function() {
+        };
+
+        request.send();
+
+        
+        
+        
+    function adicionaElementos() {
+        var tableRef = document.getElementById('tabelaAparelhos').getElementsByTagName('tbody')[0];
+        var newRow = tableRef.insertRow(tableRef.rows.lenght);
+        
+        var nomeAparelho = newRow.insertCell(0);
+        var nomeAparelhoTexto = document.createTextNode('TV LG');
+        
+        var estadoAparelho = newRow.insertCell(1);
+        estadoAparelho.innerHTML = '<span class="mif-checkmark fg-green"></span>';
+        
+        var botaoSwitch = newRow.insertCell(2);
+        botaoSwitch.innerHTML = '<label class="switch-original"><input type="checkbox" checked><span class="check"></span></label>';
+        
+        var botoesGerenciarAparelho = newRow.insertCell(3);
+        botoesGerenciarAparelho.innerHTML = '<button class="button warning" onclick="location.href=\'atualizar.html\'"><span class="mif-loop2"></span> Atualizar Cadastro</button><button class="button alert"onclick="location.href=\'index.html\'"><span class="mif-minus"></span> Remover Aparelho</button>';
+        
+        nomeAparelho.appendChild(nomeAparelhoTexto);
+        
+        $(function() {
+
+
+   var people = [];
+
+   $.getJSON('people.json', function(data) {
+       $.each(data.person, function(i, f) {
+          var tblRow = "<tr>" + "<td>" + f.firstName + "</td>" +
+           "<td>" + f.lastName + "</td>" + "<td>" + f.job + "</td>" + "<td>" + f.roll + "</td>" + "</tr>"
+           $(tblRow).appendTo("#userdata tbody");
+     });
+
+   });
+
+});
+
+    }
+        
+    window.onload = adicionaElementos;
+    </script>
