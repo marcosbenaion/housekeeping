@@ -47,24 +47,26 @@
                             <span class="mif-feed icon"></span>
                             <span class="title">Aparelhos Conectados</span>
                         </a></li>
-                        <li class="active"><a>
+                        <li class="disabled"><a>
                             <span class="mif-plus icon"></span>
                             <span class="title">Cadastrar Aparelho</span>
                         </a></li>
-                        <li class="disabled"><a>
+                        <li class="active"><a>
                             <span class="mif-loop2 icon"></span>
                             <span class="title">Atualizar Cadastro</span>
                         </a></li>
-                        <li class="disabled"><a href="historico.html">
+                        <li class="disabled"><a>
                             <span class="mif-calendar icon"></span>
                             <span class="title">Historico de Consumo</span>
                         </a></li>
                     </ul>
                 </div>
-                
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
-                    <h1 class="text-light">Cadastrar Aparelho <span class="mif-plus icon place-right"></span></h1>
+                    <h1 class="text-light">Atualizar Cadastro <span class="mif-loop2 icon place-right"></span></h1>
+                    <!-- Botao de Cadastrar Aparelho -->
                     <hr class="thin bg-grayLighter">
+                    <!-- Form para preencher -->
+                    
                     <!-- Form para preencher o cadastro -->
                     
                     <div class="login-form padding20 block-shadow">
@@ -72,24 +74,25 @@
                             <hr class="thin"/>
                             <br />
                             <div class="input-control text full-size" data-role="input">
-                                <label for="nome_aparelho">Nome do Aparelho:</label>
+                                <label for="nome_aparelho">Novo nome do Aparelho:</label>
                                 <input type="text" name="user_login" id="user_login">
                                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
                             </div>
                             <br />
                             <br />
                             <div class="input-control text full-size" data-role="input">
-                                <label for="user_login">KW/h:</label>
+                                <label for="user_login">Novo KW/h:</label>
                                 <input type="text" name="user_login" id="user_login">
                                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
                             </div>
                             <br />
                             <br />
                             <div class="form-actions">
-                                <button class="button primary" onclick="location.href='indexNewApp03.html'">Cadastrar</button>
-                                <button class="button link" onclick="location.href='indexAppLoad.html'">Cancelar</button>
+                                <button type="submit" class="button primary" onclick="location.href='indexUpdApp03.html'">Atualizar Cadastro</button>
+                                <button type="button" class="button link" onclick="location.href='indexNewApp03.html'">Cancelar</button>
                             </div>
                     </div>
+                    
                     
                 </div>
             </div>

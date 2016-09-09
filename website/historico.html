@@ -18,6 +18,16 @@
     
 </head>
 <body class="bg-lightBlue">
+    
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
     <!-- Barra superior com nome da organizacao-->
     <div class="app-bar fixed-top darcula" data-role="appbar">
         <a class="app-bar-element branding"><img id="housekeepingLogo" src="img/houseKeepingLogo.png">Smart Homes Housekeeping</a>
@@ -43,7 +53,7 @@
                     <!-- Barra Lateral -->
                     
                     <ul class="sidebar">
-                        <li class="disabled"><a href="index.html">
+                        <li class="disabled"><a href="indexAppLoad.html">
                             <span class="mif-feed icon"></span>
                             <span class="title">Aparelhos Conectados</span>
                         </a></li>
@@ -61,11 +71,13 @@
                         </a></li>
                     </ul>
                 </div>
+                
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
                     <h1 class="text-light">Historico de Consumo <span class="mif-calendar icon place-right"></span></h1>
                     <!-- Botao de Cadastrar Aparelho -->
                     <hr class="thin bg-grayLighter">
                     <!-- Tabela de historico -->
+                    <div class="fb-share-button" data-href="http://picpaste.com/pics/compartilhar-VMlAwXjt.1473382148.png" data-layout="button_count" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fpicpaste.com%2Fpics%2Fcompartilhar-VMlAwXjt.1473382148.png&amp;src=sdkpreparse">Compartilhar</a></div>
                     
                     <table id="historico" class="dataTable striped border bordered" data-role="datatable" data-searching="true">
                         <thead>
@@ -86,23 +98,24 @@
 
                         <tbody>
                             <tr>
-                                <td>TV</td>
-                                <td>9</td>
-                                <td>R$ 0.02</td>
-                            </tr>
-                            <tr>
                                 <td>Ar Condicionado</td>
                                 <td>9</td>
                                 <td>R$ 0.35</td>
                             </tr>
-                
+                            <tr>
+                                <td>Ar Condicionado</td>
+                                <td>9</td>
+                                <td>R$ 0.02</td>
+                            </tr>
                         </tbody>
                     </table>
                     <!-- Fim da tabela historico -->
                     
                 </div>
+                
             </div>
         </div>
+        
     </div>
     
 </body>

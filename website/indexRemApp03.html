@@ -33,6 +33,7 @@
             </div>
         </div>
     </div>
+    <!-- <img style="display: none;" src="turnontv.php"> -->
     
     <!-- Barra lateral e restante da pagina -->
     <div class="page-content">
@@ -43,11 +44,11 @@
                     <!-- Barra Lateral -->
                     
                     <ul class="sidebar">
-                        <li class="disabled"><a>
+                        <li class="active"><a>
                             <span class="mif-feed icon"></span>
                             <span class="title">Aparelhos Conectados</span>
                         </a></li>
-                        <li class="active"><a>
+                        <li class="disabled"><a>
                             <span class="mif-plus icon"></span>
                             <span class="title">Cadastrar Aparelho</span>
                         </a></li>
@@ -61,41 +62,44 @@
                         </a></li>
                     </ul>
                 </div>
-                
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
-                    <h1 class="text-light">Cadastrar Aparelho <span class="mif-plus icon place-right"></span></h1>
+                    <h1 class="text-light">Aparelhos Conectados <span class="mif-feed icon place-right"></span></h1>
+                    <!-- Botao de Cadastrar Aparelho -->
                     <hr class="thin bg-grayLighter">
-                    <!-- Form para preencher o cadastro -->
+                    <button class="button primary"><span class="mif-plus"></span> Cadastrar Aparelho</button>
+                    <hr class="thin bg-grayLighter">
                     
-                    <div class="login-form padding20 block-shadow">
-                            <h1 class="text-light">Insira as informacoes solicitadas</h1>
-                            <hr class="thin"/>
-                            <br />
-                            <div class="input-control text full-size" data-role="input">
-                                <label for="nome_aparelho">Nome do Aparelho:</label>
-                                <input type="text" name="user_login" id="user_login">
-                                <button class="button helper-button clear"><span class="mif-cross"></span></button>
-                            </div>
-                            <br />
-                            <br />
-                            <div class="input-control text full-size" data-role="input">
-                                <label for="user_login">KW/h:</label>
-                                <input type="text" name="user_login" id="user_login">
-                                <button class="button helper-button clear"><span class="mif-cross"></span></button>
-                            </div>
-                            <br />
-                            <br />
-                            <div class="form-actions">
-                                <button class="button primary" onclick="location.href='indexNewApp03.html'">Cadastrar</button>
-                                <button class="button link" onclick="location.href='indexAppLoad.html'">Cancelar</button>
-                            </div>
-                    </div>
-                    
+                    <table id="tabelaAparelhos" class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                        <thead>
+                        <tr>
+                            <td class="sortable-column sort-asc" style="width: 100px">Aparelho</td>
+                            <td style="width: 20px">Ligar/Desligar</td>
+                            <td style="width: 100px">Gerenciar</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>Ar Condicionado</td>
+                            <td>
+                                <button class="button success"><span class="mif-broadcast"></span> Ativar</button>
+                            </td>
+                            <td>
+                                <button class="button warning"><span class="mif-loop2"></span> Atualizar Cadastro</button>
+                                <button class="button alert"><span class="mif-minus"></span> Remover Aparelho</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
     </div>
     
 </body>
+    
+<script>
+
+    
+</script>
 
 </html>

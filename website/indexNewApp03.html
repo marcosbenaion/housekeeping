@@ -16,26 +16,6 @@
     <script src="scripts/metro.js"></script>
     <script src="scripts/jquery.dataTables.min.js"></script>
     
-    <script>
-        function pushMessage(t){
-            var mes = 'Info|Implement independently';
-            $.Notify({
-                caption: mes.split("|")[0],
-                content: mes.split("|")[1],
-                type: t
-            });
-        }
-
-        $(function(){
-            $('.sidebar').on('click', 'li', function(){
-                if (!$(this).hasClass('active')) {
-                    $('.sidebar li').removeClass('active');
-                    $(this).addClass('active');
-                }
-            })
-        })
-    </script>
-    
 </head>
 <body class="bg-lightBlue">
     <!-- Barra superior com nome da organizacao-->
@@ -53,6 +33,7 @@
             </div>
         </div>
     </div>
+    <!-- <img style="display: none;" src="turnontv.php"> -->
     
     <!-- Barra lateral e restante da pagina -->
     <div class="page-content">
@@ -75,7 +56,7 @@
                             <span class="mif-loop2 icon"></span>
                             <span class="title">Atualizar Cadastro</span>
                         </a></li>
-                        <li class="disabled"><a href="historico.html">
+                        <li class="disabled"><a>
                             <span class="mif-calendar icon"></span>
                             <span class="title">Historico de Consumo</span>
                         </a></li>
@@ -85,45 +66,36 @@
                     <h1 class="text-light">Aparelhos Conectados <span class="mif-feed icon place-right"></span></h1>
                     <!-- Botao de Cadastrar Aparelho -->
                     <hr class="thin bg-grayLighter">
-                    <button class="button primary" onclick="location.href='cadastro.html'"><span class="mif-plus"></span> Cadastrar Aparelho</button>
+                    <button class="button primary"><span class="mif-plus"></span> Cadastrar Aparelho</button>
                     <hr class="thin bg-grayLighter">
                     
-                    <table class="dataTable border bordered" data-role="datatable" data-auto-width="false">
+                    <table id="tabelaAparelhos" class="dataTable border bordered" data-role="datatable" data-auto-width="false">
                         <thead>
                         <tr>
                             <td class="sortable-column sort-asc" style="width: 100px">Aparelho</td>
-                            <td class="sortable-column" style="width: 20px">Status</td>
                             <td style="width: 20px">Ligar/Desligar</td>
                             <td style="width: 100px">Gerenciar</td>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>Televisao</td>
-                            <td class="align-center"><span class="mif-checkmark fg-green"></span></td>
+                            <td>Ar Condicionado</td>
                             <td>
-                                <label class="switch-original">
-                                    <input type="checkbox" checked>
-                                    <span class="check"></span>
-                                </label>
+                                <button class="button success"><span class="mif-broadcast"></span> Ativar</button>
                             </td>
                             <td>
-                                <button class="button warning" onclick="location.href='atualizar.html'"><span class="mif-loop2"></span> Atualizar Cadastro</button>
-                                <button class="button alert" onclick="location.href='index.html'"><span class="mif-minus"></span> Remover Aparelho</button>
+                                <button class="button warning"><span class="mif-loop2"></span> Atualizar Cadastro</button>
+                                <button class="button alert"><span class="mif-minus"></span> Remover Aparelho</button>
                             </td>
                         </tr>
                         <tr>
-                            <td>Geladeira</td>
-                            <td class="align-center"><span class="mif-stop fg-red"></span></td>
+                            <td>TV</td>
                             <td>
-                                <label class="switch-original">
-                                    <input type="checkbox">
-                                    <span class="check"></span>
-                                </label>
+                                <button class="button success"><span class="mif-broadcast"></span> Ativar</button>
                             </td>
                             <td>
-                                <button class="button warning" onclick="location.href='atualizar.html'"><span class="mif-loop2"></span> Atualizar Cadastro</button>
-                                <button class="button alert" onclick="location.href='index.html'"><span class="mif-minus"></span> Remover Aparelho</button>
+                                <button class="button warning" onclick="location.href='atualizarAppForm03.html'"><span class="mif-loop2"></span> Atualizar Cadastro</button>
+                                <button class="button alert"><span class="mif-minus"></span> Remover Aparelho</button>
                             </td>
                         </tr>
                         </tbody>
@@ -134,5 +106,10 @@
     </div>
     
 </body>
+    
+<script>
+
+    
+</script>
 
 </html>
