@@ -16,8 +16,60 @@
     <script src="scripts/metro.js"></script>
     <script src="scripts/jquery.dataTables.min.js"></script>
     
+    <script>
+
+    $(function() {
+
+    $.getJSON('devices.json', function(data) {
+       $.each(data.aparelhos, function(i, f) {
+          var checkboxLigado = " <label class=\"switch-original\"><a href='ativarOff.php?nome_aparelho=" + f.nome +"'><input type=\"checkbox\" checked><span class=\"check\"></span></a></label>";
+          var checkboxDesligado = " <label class=\"switch-original\"><a href='ativarOn.php?nome_aparelho=" + f.nome +"'><input type=\"checkbox\"><span class=\"check\"></span></a></label>";
+          var checkboxUsado = "";
+           
+          var botaoAtualizarCadastro = "<button class=\"button warning\"><a href='atualizar.html?nome_antigo=" + f.nome + "'><span class=\"mif-loop2\"></span> Atualizar Cadastro</a></button> ";
+        
+          var botaoRemoverAparelho = "<button class=\"button alert\"><a href='remover.php?nome_aparelho=" + f.nome + "'><span class=\"mif-minus\"></span> Remover Aparelho</a></button>";
+        
+          // Verifica se aparelho esta ligado
+          if (f.estado == 0){
+              checkboxUsado = checkboxDesligado;
+          } else{
+              checkboxUsado = checkboxLigado;
+          }
+           
+          var tblRow = "<tr>" + 
+              "<td>" + f.nome + "</td>" 
+            + "<td>" + f.kwh + "</td>" 
+            + "<td> R$: " + f.custo + "</td>" 
+            + "<td>" + checkboxUsado + "</td>" 
+            + "<td>" + botaoAtualizarCadastro + botaoRemoverAparelho + "</td>" 
+                    + "</tr>"
+           $(tblRow).appendTo("#tabelaAparelhos tbody");
+     });
+
+   });
+
+});
+</script>
+    
+    <style>
+        a:visited{
+            color: white;
+        }
+    </style>
+    
 </head>
 <body class="bg-lightBlue">
+    
+    <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&version=v2.7";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+    
     <!-- Barra superior com nome da organizacao-->
     <div class="app-bar fixed-top darcula" data-role="appbar">
         <a class="app-bar-element branding"><img id="housekeepingLogo" src="img/houseKeepingLogo.png">Smart Homes Housekeeping</a>
@@ -33,7 +85,6 @@
             </div>
         </div>
     </div>
-    <!-- <img style="display: none;" src="turnontv.php"> -->
     
     <!-- Barra lateral e restante da pagina -->
     <div class="page-content">
@@ -48,7 +99,7 @@
                             <span class="mif-feed icon"></span>
                             <span class="title">Aparelhos Conectados</span>
                         </a></li>
-                        <li class="disabled"><a>
+                        <li class="disabled"><a href="cadastro.html">
                             <span class="mif-plus icon"></span>
                             <span class="title">Cadastrar Aparelho</span>
                         </a></li>
@@ -56,9 +107,13 @@
                             <span class="mif-loop2 icon"></span>
                             <span class="title">Atualizar Cadastro</span>
                         </a></li>
-                        <li class="disabled"><a>
+                        <li class="disabled"><a href="historico.html">
                             <span class="mif-calendar icon"></span>
                             <span class="title">Historico de Consumo</span>
+                        </a></li>
+                        <li class="disabled"><a href="ranking.html">
+                            <span class="mif-facebook icon"></span>
+                            <span class="title">Ranking de Consumo</span>
                         </a></li>
                     </ul>
                 </div>
@@ -66,37 +121,26 @@
                     <h1 class="text-light">Aparelhos Conectados <span class="mif-feed icon place-right"></span></h1>
                     <!-- Botao de Cadastrar Aparelho -->
                     <hr class="thin bg-grayLighter">
-                    <button class="button primary"><span class="mif-plus"></span> Cadastrar Aparelho</button>
+                    <button class="button primary" onclick="location.href='cadastro.html'"><span class="mif-plus"></span> Cadastrar Aparelho</button>
                     <hr class="thin bg-grayLighter">
                     
                     <table id="tabelaAparelhos" class="dataTable border bordered" data-role="datatable" data-auto-width="false">
                         <thead>
                         <tr>
                             <td class="sortable-column sort-asc" style="width: 100px">Aparelho</td>
-                            <td style="width: 20px">Ligar/Desligar</td>
-                            <td style="width: 100px">Gerenciar</td>
+                            <td>Kw/h</td>
+                            <td>Custo</td>
+                            <td>Ligar/Desligar</td>
+                            <td>Gerenciar</td>
                         </tr>
                         </thead>
                         <tbody>
                         <tr>
-                            <td>Ar Condicionado</td>
-                            <td>
-                                <button class="button success"><span class="mif-broadcast"></span> Ativar</button>
-                            </td>
-                            <td>
-                                <button class="button warning"><span class="mif-loop2"></span> Atualizar Cadastro</button>
-                                <button class="button alert"><span class="mif-minus"></span> Remover Aparelho</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Televisao</td>
-                            <td>
-                                <button class="button success"><span class="mif-broadcast"></span> Ativar</button>
-                            </td>
-                            <td>
-                                <button class="button warning"><span class="mif-loop2"></span> Atualizar Cadastro</button>
-                                <button class="button alert" onclick="location.href='indexRemApp03.html'"><span class="mif-minus"></span> Remover Aparelho</button>
-                            </td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
                         </tr>
                         </tbody>
                     </table>
@@ -108,7 +152,6 @@
 </body>
     
 <script>
-
     
 </script>
 

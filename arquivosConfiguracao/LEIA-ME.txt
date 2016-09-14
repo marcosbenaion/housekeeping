@@ -1,0 +1,7 @@
+nginx.conf - vai para -> /etc/nginx/nginx.conf
+
+modules - vai para ->/etc/modules
+
+hardware.conf - vai para -> /etc/lirc/hardware.conf
+
+config.txt - vai para -> /boot/config.txt 

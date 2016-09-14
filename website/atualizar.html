@@ -16,6 +16,34 @@
     <script src="scripts/metro.js"></script>
     <script src="scripts/jquery.dataTables.min.js"></script>
     
+    <script>
+        
+        function GetURLParameter(sParam)
+        {
+            var sPageURL = window.location.search.substring(1);
+            var sURLVariables = sPageURL.split('&');
+            for (var i = 0; i < sURLVariables.length; i++) 
+            {
+                var sParameterName = sURLVariables[i].split('=');
+                if (sParameterName[0] == sParam) 
+            {
+                return sParameterName[1];
+            }
+            }
+        }
+        var nome = GetURLParameter('nome_antigo');
+        console.log(nome);
+        
+        function updateURL(){
+            var formNode = document.getElementById("formAtualizar");
+            var urlNova = "atualizar.php?nome_antigo=" + nome;
+            formNode.setAttribute("action", urlNova);
+            console.log(urlNova);
+        }
+        
+        window.onload = updateURL;
+    </script>
+    
 </head>
 <body class="bg-lightBlue">
     <!-- Barra superior com nome da organizacao-->
@@ -43,11 +71,11 @@
                     <!-- Barra Lateral -->
                     
                     <ul class="sidebar">
-                        <li class="disabled"><a>
+                        <li class="disabled"><a href="index.html">
                             <span class="mif-feed icon"></span>
                             <span class="title">Aparelhos Conectados</span>
                         </a></li>
-                        <li class="disabled"><a>
+                        <li class="disabled"><a href="cadastro.html">
                             <span class="mif-plus icon"></span>
                             <span class="title">Cadastrar Aparelho</span>
                         </a></li>
@@ -55,9 +83,13 @@
                             <span class="mif-loop2 icon"></span>
                             <span class="title">Atualizar Cadastro</span>
                         </a></li>
-                        <li class="disabled"><a>
+                        <li class="disabled"><a href="historico.html">
                             <span class="mif-calendar icon"></span>
                             <span class="title">Historico de Consumo</span>
+                        </a></li>
+                        <li class="disabled"><a href="ranking.html">
+                            <span class="mif-facebook icon"></span>
+                            <span class="title">Ranking de Consumo</span>
                         </a></li>
                     </ul>
                 </div>
@@ -70,30 +102,31 @@
                     <!-- Form para preencher o cadastro -->
                     
                     <div class="login-form padding20 block-shadow">
+                        <form id="formAtualizar" name="form" action="atualizar.php" method="post">
                             <h1 class="text-light">Insira as informacoes solicitadas</h1>
                             <hr class="thin"/>
                             <br />
                             <div class="input-control text full-size" data-role="input">
-                                <label for="nome_aparelho">Novo nome do Aparelho:</label>
-                                <input type="text" name="user_login" id="user_login">
+                                <label for="nome_novo">Novo nome do Aparelho:</label>
+                                <input type="text" name="nomeNovo" id="nomeNovo">
                                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
                             </div>
                             <br />
                             <br />
                             <div class="input-control text full-size" data-role="input">
-                                <label for="user_login">Novo KW/h:</label>
-                                <input type="text" name="user_login" id="user_login">
+                                <label for="novo_kwh">Novo KW/h:</label>
+                                <input type="text" name="novoKwh" id="novoKwh">
                                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
                             </div>
                             <br />
                             <br />
                             <div class="form-actions">
-                                <button type="submit" class="button primary" onclick="location.href='indexUpdApp03.html'">Atualizar Cadastro</button>
-                                <button type="button" class="button link" onclick="location.href='indexNewApp03.html'">Cancelar</button>
+                                <button type="submit" class="button primary">Atualizar Cadastro</button>
+                                <button type="button" class="button link" onclick="location.href='index.html'">Cancelar</button>
                             </div>
+                        </form>
                     </div>
-                    
-                    
+
                 </div>
             </div>
         </div>

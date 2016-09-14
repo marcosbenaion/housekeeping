@@ -1,7 +1,6 @@
 #! /usr/bin/python2
 
 import datetime
-import os
 import sqlite3
 import sys
 import time
@@ -10,7 +9,7 @@ total = 0
 t_time = 0
 device = (sys.argv[1],)
 
-home = os.getenv("HOME")
+home = ("/home/pi")
 conn = sqlite3.connect(home + "/.housekeeping/hk.db")
 c = conn.cursor()
 

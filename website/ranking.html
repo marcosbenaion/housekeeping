@@ -17,30 +17,28 @@
     <script src="scripts/jquery.dataTables.min.js"></script>
     
     <script>
-    var pontuacao = 1000;
 
-    $(function() {
+    /*$(function() {
 
 
     $.getJSON('historico.json', function(data) {
        $.each(data.historico, function(i, f) {
-          pontuacao = pontuacao - f.custo*100;
           var tblRow = "<tr>" + "<td>" + f.nome + "</td>" +
            "<td>" + f.mes + "</td>" + "<td>R$: " + f.custo + "</td>" + "</tr>"
            $(tblRow).appendTo("#historico tbody");
      });
 
    });
-        
-    
 
-});
+});*/
+        
+        
 </script>
     
 </head>
 <body class="bg-lightBlue">
     
-    <script>
+<script>
   
   // This is called with the results from from FB.getLoginStatus().
   function statusChangeCallback(response) {
@@ -112,22 +110,59 @@
     
   // Here we run a very simple test of the Graph API after login is
   // successful.  See statusChangeCallback() for when this call is made.
-        
+    
   function testAPI() {
+    FB.api(
+    '/me/scores',
+    'GET',
+    {},
+    function(response) {
+      // Insert your code here
+      console.log(response.data[0].score);
+    }
+    );
+  
+  FB.api(
+  '/182334608858713/scores',
+  'GET',
+  {},
+  function(response) {
+      // Insert your code here
+      //console.log(response.data[0].user.name);  
+      //console.log(response.data[1].user.name); 
       
-      var pontuacao2 = parseInt(pontuacao);
-      console.log('Pontuacao: '+pontuacao2);
-      
+      $.each(response.data, function(i, f) {
+      console.log('Dado: '+ f.user.name);
+      console.log('Dado: '+ f.score);
       FB.api(
-        '/me/scores',
-        'POST',
-        {"score":pontuacao2},
+        '/'+f.user.id+'/picture',
+        'GET',
+        {},
         function(response) {
             // Insert your code here
-            console.log('Submissao: '+response.success);
+            $("#ranking tbody").append("<tr>"+ 
+                           "<td><img src=\"" + response.data.url + "\"</td>" +
+                           "<td>" + f.user.name + "</td>" +  
+                           "<td>" + f.score + "</td>" +
+                           "</tr>");
         }
       );
+          
+      
+});
+      
+      
+      
+      
+  }
+);
+  
+  
+  
   };
+    
+    
+    
     
 /*
 The Graph API for scores lets game developers build social leaderboards and
@@ -179,11 +214,11 @@ scenario where that permission wasn't previously granted.
                             <span class="mif-loop2 icon"></span>
                             <span class="title">Atualizar Cadastro</span>
                         </a></li>
-                        <li class="active"><a>
+                        <li class="disabled"><a href="historico.html">
                             <span class="mif-calendar icon"></span>
                             <span class="title">Historico de Consumo</span>
                         </a></li>
-                        <li class="disabled"><a href="ranking.html">
+                        <li class="active"><a>
                             <span class="mif-facebook icon"></span>
                             <span class="title">Ranking de Consumo</span>
                         </a></li>
@@ -191,27 +226,26 @@ scenario where that permission wasn't previously granted.
                 </div>
                 
                 <div class="cell auto-size padding20 bg-white" id="cell-content">
-                    <h1 class="text-light">Historico de Consumo <span class="mif-calendar icon place-right"></span></h1>
+                    <h1 class="text-light">Ranking de Consumo <span class="mif-calendar icon place-right"></span></h1>
                     <!-- Botao de Cadastrar Aparelho -->
                     <hr class="thin bg-grayLighter">
                     <!-- Tabela de historico -->
                     <fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button><div id="status"></div>
-                    <button onclick="testAPI()" type="submit" class="button primary">Compartilhar Pontuacao</button>
                     
-                    <table id="historico" class="dataTable striped border bordered" data-role="datatable" data-searching="true">
+                    <table id="ranking" class="dataTable striped border bordered" data-role="datatable" data-searching="true">
                         <thead>
                             <tr>
-                                <th>Nome do Aparelho</th>
-                                <th>Mes de Consumo</th>
-                                <th>Custo</th>
+                                <th>Foto de Perfil</th>
+                                <th>Nome do Usuario</th>
+                                <th>Pontuacao</th>
                             </tr>
                         </thead>
 
                         <tfoot>
                             <tr>
-                                <th>Nome do Aparelho</th>
-                                <th>Mes de Consumo</th>
-                                <th>Custo</th>
+                                <th>Foto de Perfil</th>
+                                <th>Nome do Usuario</th>
+                                <th>Pontuacao</th>
                             </tr>
                         </tfoot>
 

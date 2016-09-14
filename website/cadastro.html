@@ -43,7 +43,7 @@
                     <!-- Barra Lateral -->
                     
                     <ul class="sidebar">
-                        <li class="disabled"><a>
+                        <li class="disabled"><a href="index.html">
                             <span class="mif-feed icon"></span>
                             <span class="title">Aparelhos Conectados</span>
                         </a></li>
@@ -59,6 +59,10 @@
                             <span class="mif-calendar icon"></span>
                             <span class="title">Historico de Consumo</span>
                         </a></li>
+                        <li class="disabled"><a href="ranking.html">
+                            <span class="mif-facebook icon"></span>
+                            <span class="title">Ranking de Consumo</span>
+                        </a></li>
                     </ul>
                 </div>
                 
@@ -68,27 +72,29 @@
                     <!-- Form para preencher o cadastro -->
                     
                     <div class="login-form padding20 block-shadow">
+                        <form name="form" action="cadastrar.php" method="post">
                             <h1 class="text-light">Insira as informacoes solicitadas</h1>
                             <hr class="thin"/>
                             <br />
                             <div class="input-control text full-size" data-role="input">
                                 <label for="nome_aparelho">Nome do Aparelho:</label>
-                                <input type="text" name="user_login" id="user_login">
+                                <input type="text" name="nomeAparelho" id="nomeAparelho">
                                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
                             </div>
                             <br />
                             <br />
                             <div class="input-control text full-size" data-role="input">
-                                <label for="user_login">KW/h:</label>
-                                <input type="text" name="user_login" id="user_login">
+                                <label for="kwh_aparelho">KW/h:</label>
+                                <input type="text" name="kwhAparelho" id="kwhAparelho">
                                 <button class="button helper-button clear"><span class="mif-cross"></span></button>
                             </div>
                             <br />
                             <br />
                             <div class="form-actions">
-                                <button class="button primary" onclick="location.href='indexNewApp03.html'">Cadastrar</button>
-                                <button class="button link" onclick="location.href='indexAppLoad.html'">Cancelar</button>
+                                <button type="submit" class="button primary">Cadastrar</button>
+                                <button type="button" class="button link" onclick="location.href='index.html'">Cancelar</button>
                             </div>
+                        </form>
                     </div>
                     
                 </div>

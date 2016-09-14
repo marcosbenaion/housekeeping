@@ -1,1 +1,9 @@
-{["tv", 0.3, 6.875000000000026e-06, 1]}
+{
+"aparelhos": [
+	{"nome":"Som", "kwh":0.6, "custo":0.008525, "estado":0},
+	{"nome":"TV", "kwh":0.7, "custo":0.0357194444444, "estado":0},
+	{"nome":"Geladeira", "kwh":0.8, "custo":0.0399666666667, "estado":0},
+	{"nome":"Ventilador", "kwh":0.4, "custo":0.0198, "estado":0},
+	{"nome":"Luzes", "kwh":0.8, "custo":0.0393555555556, "estado":0}
+	]
+}
