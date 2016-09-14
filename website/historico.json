@@ -8,16 +8,6 @@
 	{"nome":"TV", "mes":9, "custo":0.0},
 	{"nome":"NovoCadastro", "mes":9, "custo":0.0},
 	{"nome":"Carro", "mes":9, "custo":0.0},
-	{"nome":"Carro", "mes":9, "custo":0.000381944444444},
-	{"nome":"Som", "mes":9, "custo":0.03025},
-	{"nome":"TV", "mes":9, "custo":0.0357194444444},
-	{"nome":"Geladeira", "mes":9, "custo":0.0399666666667},
-	{"nome":"Ventilador", "mes":9, "custo":0.0198},
-	{"nome":"Luzes", "mes":9, "custo":0.0393555555556},
-	{"nome":"Som", "mes":9, "custo":0.0033},
-	{"nome":"Som", "mes":9, "custo":0.0},
-	{"nome":"Som", "mes":9, "custo":0.0116416666667},
-	{"nome":"Som", "mes":9, "custo":0.001925},
-	{"nome":"Som", "mes":9, "custo":0.008525}
+	{"nome":"Carro", "mes":9, "custo":0.000381944444444}
 	]
 }
